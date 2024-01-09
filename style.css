@@ -71,4 +71,5 @@ body{
     align-items: center;
     color: #3A3238;
     font-size: 5vmin;
+    gap:1.5vmin;
 }
