@@ -63,3 +63,8 @@ body{
 .hide{
     display:none;
 }
+.player{
+    display: flex;
+    color: white;
+    
+}

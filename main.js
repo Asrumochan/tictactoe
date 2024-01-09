@@ -3,7 +3,9 @@ let reset = document.querySelector("#reset");
 let newbtn= document.querySelector("#new");
 let msg=document.querySelector("#msg");
 let msgcontainer=document.querySelector(".msg-container")
-
+let p1=document.querySelector("#p1")
+let p2=document.querySelector("#p2")
+let player=document.querySelector(".player")
 let turnx =true;
 let count=0;
 const winningPattern=[
@@ -16,7 +18,12 @@ const winningPattern=[
     [0,4,8],
     [2,4,6] 
 ];
-
+// let player1=prompt("Name of Player1 :")
+// let player2=prompt("Name of Player2 :")
+// if(player1===player2){
+//     alert('Players name cannot be the same')
+//     player2=prompt("Name of Player2 :")
+// }
 boxes.forEach((box) => {
     box.addEventListener("click",()=>{
         if(turnx){
@@ -29,8 +36,8 @@ boxes.forEach((box) => {
         }
         box.disabled=true;
         count++;
+        console.log(count)
         checkForWinner(count);
-        
     })
 });
 
@@ -40,15 +47,15 @@ const checkForWinner =(count)=>{
       let val2=boxes[pattern[1]].innerText;
       let val3=boxes[pattern[2]].innerText;
 
-      if(val1!= "" &&val2!= "" && val3!= ""){
+      if(val1!= "" && val2!= "" && val3!= ""){
         if(val1===val2 && val2===val3){
             showWinner(val1);
             disableBoxes();
         }
         else if(count===9)
-        {
-            msg.innerText= `Game was a DRAW`;
-             msgcontainer.classList.remove("hide") 
+        {    console.log("game darw")
+             msg.innerText= `Game was a DRAW`;
+             msgcontainer.classList.remove("hide") ;
         }
       }
     }
@@ -57,6 +64,7 @@ const checkForWinner =(count)=>{
 const showWinner=(winner)=>{
     msg.innerText= `Congratulations , Winner is ${winner}`;
     msgcontainer.classList.remove("hide")
+    count=0;
 }
 
 const disableBoxes=()=>{
@@ -66,6 +74,7 @@ const disableBoxes=()=>{
 }
 const resetGame=()=>{
     turnx=true;
+    count=0;
     enableBoxes();
     msgcontainer.classList.add("hide");
 }
