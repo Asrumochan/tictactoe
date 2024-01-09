@@ -24,6 +24,9 @@ const winningPattern=[
 //     alert('Players name cannot be the same')
 //     player2=prompt("Name of Player2 :")
 // }
+// p1.innerText=`${player1} is- X`
+// p2.innerText=`${player2} is- O`
+
 boxes.forEach((box) => {
     box.addEventListener("click",()=>{
         if(turnx){
@@ -53,7 +56,7 @@ const checkForWinner =(count)=>{
             disableBoxes();
         }
         else if(count===9)
-        {    console.log("game darw")
+        {  
              msg.innerText= `Game was a DRAW`;
              msgcontainer.classList.remove("hide") ;
         }
